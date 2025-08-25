@@ -18,7 +18,7 @@ main{padding-top:100px;display:flex;flex-direction:column;align-items:center;}
 .hero-image img{width:100%;height:100%;object-fit:cover;opacity:.6;transition:transform .6s;}
 .hero-image:hover img{transform:scale(1.05);}
 .hero-image h2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:2.2em;text-align:center;text-shadow:2px 2px 6px rgba(0,0,0,.5);}
-section{width:90%;max-width:900px;padding:50px 25px 70px; margin:25px 0;min-height:100vh;display:flex;flex-direction:column;align-items:center;gap:25px;background:#fdfbf2;border-radius:20px;box-shadow:0 6px 15px rgba(0,0,0,.15);opacity:0;transform:translateY(50px);transition:.8s;}
+section{width:90%;max-width:900px;padding:50px 25px 70px;margin:25px 0;min-height:90vh;display:flex;flex-direction:column;align-items:center;gap:25px;background:#fdfbf2;border-radius:20px;box-shadow:0 6px 15px rgba(0,0,0,.15);opacity:0;transform:translateY(50px);transition:.8s;}
 section.visible{opacity:1;transform:translateY(0);}
 section h2{font-size:2.2em;margin-bottom:15px;color:#4b6533;}
 section p,blockquote.citation{font-size:1.2em;line-height:1.6;color:#555c4a;}
@@ -27,6 +27,7 @@ blockquote.citation{text-align:center;font-style:italic;max-width:800px;}
 #read-more-btn:hover,form button:hover{background:#1a1a1a;transform:scale(1.05);}
 .media-list{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:15px;}
 .media-item{width:220px;height:140px;border-radius:15px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.15);transition:.4s;}
+.media-item img{width:100%;height:100%;object-fit:cover;}
 .media-item:hover{transform:scale(1.05);box-shadow:0 6px 18px rgba(0,0,0,.25);}
 .contact-box,form{background:#fff;padding:15px 20px;border-radius:15px;box-shadow:0 3px 8px rgba(0,0,0,.1);}
 form{display:flex;flex-direction:column;gap:15px;width:100%;max-width:500px;}
@@ -52,45 +53,64 @@ h3{margin-top:25px;color:#2E5F3B;font-size:1.6em;text-align:center;}
 </ul></nav></header>
 
 <div id="audio-toggle" class="audio-btn">🔊</div>
-<audio id="background-audio" loop><source src="sons/ambiance.mp3" type="audio/mpeg">Votre navigateur ne supporte pas l’audio.</audio>
+<audio id="background-audio" loop>
+  <source src="sons/ambiance.mp3" type="audio/mpeg">
+  Votre navigateur ne supporte pas l’audio.
+</audio>
 
 <main>
-<div class="hero-image"><img src="images/axonometrie.jpg" alt="Axonometrie"><h2>Bienvenue à La P'tite Sauvette</h2></div>
+<div class="hero-image">
+  <img src="images/axonometrie.jpg" alt="Axonometrie">
+  <h2>Bienvenue à La P'tite Sauvette</h2>
+</div>
 
 <section id="accueil">
-<p>Maraîchage Biologique</p>
-<blockquote class="citation">
-<span id="short-text">Petite ferme paysanne, située sur la commune de Saint-Sauvant, au milieu des plaines du seuil du Poitou...</span>
-<span id="full-text" style="display:none;">Petite ferme paysanne, située sur la commune de Saint-Sauvant, au milieu des plaines du seuil du Poitou. Nous pratiquons une agriculture vivrière dans le simple but de produire des légumes de bonne qualité. Faiblement mécanisé, nous travaillons donc majoritairement à la main. Avec les années, nous avons conçu un écosystème agricole riche en auxiliaires de culture qui devient un environnement-outil de travail complet, dynamique et résilient.
+  <p>Maraîchage Biologique</p>
+  <blockquote class="citation">
+    <span id="short-text">Petite ferme paysanne, située sur la commune de Saint-Sauvant, au milieu des plaines du seuil du Poitou...</span>
+    <span id="full-text" style="display:none;">Petite ferme paysanne, située sur la commune de Saint-Sauvant, au milieu des plaines du seuil du Poitou. Nous pratiquons une agriculture vivrière dans le simple but de produire des légumes de bonne qualité. Faiblement mécanisé, nous travaillons donc majoritairement à la main. Avec les années, nous avons conçu un écosystème agricole riche en auxiliaires de culture qui devient un environnement-outil de travail complet, dynamique et résilient.
 
 Nous avons besoin des insectes, oiseaux, rongeurs, rapaces, mammifères pour ne pas acheter de produits. Et nous avons, avec les habitants de la commune, replanté la plaine avec des haies diverses et variées. Offrant ainsi le gîte et le couvert à cette fameuse biodiversité.</span>
-</blockquote>
-<button id="read-more-btn">Lire plus</button>
-<div class="ventes"><h3>Points de vente :</h3>
-<ul>
-<li>Vendredi matin 8h-12h au marché de Rouillé</li>
-<li>Vendredi après-midi 13h-19h au marché de Saint-Sauvant</li>
-<li><a href="#" target="_blank">La Clique Paysanne (mardi)</a></li>
-<li><a href="#" target="_blank">Le Clic Paysan (vendredi)</a></li>
-</ul></div>
-<h3>La carte des copains</h3>
-<div id="map-markets"></div>
-<div class="map-legend"><div><i style="background:#2E5F3B"></i> Marchés</div><div><i style="background:#FF5733"></i> Producteurs</div></div>
+  </blockquote>
+  <div><button id="read-more-btn">Lire plus</button></div>
+
+  <div class="ventes">
+    <h3>Points de vente :</h3>
+    <ul>
+      <li>Vendredi matin 8h-12h au marché de Rouillé</li>
+      <li>Vendredi après-midi 13h-19h au marché de Saint-Sauvant</li>
+      <li><a href="https://www.lacliquepaysanne.fr" target="_blank">La Clique Paysanne (mardi)</a></li>
+      <li><a href="https://www.leclicpaysan.fr" target="_blank">Le Clic Paysan (vendredi)</a></li>
+    </ul>
+  </div>
+
+  <h3>La carte des copains</h3>
+  <div id="map-markets"></div>
+  <div class="map-legend">
+    <div><i style="background:#2E5F3B"></i> Marchés</div>
+    <div><i style="background:#FF5733"></i> Producteurs</div>
+  </div>
 </section>
 
-<section id="medias"><h2>Médias</h2><div class="media-list" id="media-list"></div></section>
-<section id="contact"><h2>Contact</h2>
-<form id="contact-form">
-<input type="text" id="name" placeholder="Nom et Prénom" required>
-<input type="text" id="phone" placeholder="Numéro de téléphone" required>
-<input type="email" id="email" placeholder="Adresse email" required>
-<textarea id="message" placeholder="Votre message" rows="5" required></textarea>
-<div class="error" id="form-error"></div>
-<button type="submit">Envoyer</button>
-<div class="success" id="form-success"></div>
-</form>
+<section id="medias">
+  <h2>Médias</h2>
+  <div class="media-list" id="media-list"></div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <form id="contact-form">
+    <input type="text" id="name" placeholder="Nom et Prénom" required>
+    <input type="text" id="phone" placeholder="Numéro de téléphone" required>
+    <input type="email" id="email" placeholder="Adresse email" required>
+    <textarea id="message" placeholder="Votre message" rows="5" required></textarea>
+    <div class="error" id="form-error"></div>
+    <button type="submit">Envoyer</button>
+    <div class="success" id="form-success"></div>
+  </form>
 </section>
 </main>
+
 <footer>laptitesauvette@gmail.com</footer>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -98,45 +118,119 @@ Nous avons besoin des insectes, oiseaux, rongeurs, rapaces, mammifères pour ne 
 <script>
 // EmailJS
 emailjs.init("zmJKXZGvDw5FdO3q9");
+
 // Lire plus / moins
-const btn=document.getElementById('read-more-btn'),shortText=document.getElementById('short-text'),fullText=document.getElementById('full-text');
-btn.addEventListener('click',()=>{fullText.style.display==='none'? (fullText.style.display='inline',shortText.style.display='none',btn.textContent='Lire moins'):(fullText.style.display='none',shortText.style.display='inline',btn.textContent='Lire plus');});
+const btn = document.getElementById('read-more-btn');
+const shortText = document.getElementById('short-text');
+const fullText = document.getElementById('full-text');
+btn.addEventListener('click', () => {
+  if(fullText.style.display === 'none' || fullText.style.display === '') {
+    fullText.style.display = 'inline';
+    shortText.style.display = 'none';
+    btn.textContent = 'Lire moins';
+  } else {
+    fullText.style.display = 'none';
+    shortText.style.display = 'inline';
+    btn.textContent = 'Lire plus';
+  }
+});
+
 // Galerie
-["images/photos/aillet.jpg","images/photos/betterave1.jpg","images/photos/salade.jpg","images/photos/chinois1.jpg","images/photos/radis.jpg","images/photos/epinard.jpg","images/photos/carotte.jpg","images/photos/chinois2.jpg"].forEach(src=>{const div=document.createElement('div');div.className='media-item';const img=document.createElement('img');img.src=src;img.alt='';img.style.width='100%';img.style.height='100%';img.style.objectFit='cover';div.appendChild(img);document.getElementById('media-list').appendChild(div);});
+const mediaImages = [
+  "images/photos/aillet.jpg","images/photos/betterave1.jpg",
+  "images/photos/salade.jpg","images/photos/chinois1.jpg",
+  "images/photos/radis.jpg","images/photos/epinard.jpg",
+  "images/photos/carotte.jpg","images/photos/chinois2.jpg"
+];
+const mediaList = document.getElementById('media-list');
+mediaImages.forEach(src => {
+  const div = document.createElement('div');
+  div.className = 'media-item';
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = 'Photo de légumes';
+  div.appendChild(img);
+  mediaList.appendChild(div);
+});
+
 // Nav active & reveal
-const sections=document.querySelectorAll("section"),navLinks=document.querySelectorAll("nav a");
-function updateNav(){let current='';sections.forEach(s=>{if(pageYOffset>=s.offsetTop-150) current=s.id;});navLinks.forEach(l=>l.classList.remove('active'));document.querySelector('nav a[href="#'+current+'"]')?.classList.add('active');}
-function reveal(){sections.forEach(s=>{if(s.getBoundingClientRect().top<window.innerHeight-100)s.classList.add('visible');});}
-window.addEventListener('scroll',()=>{updateNav();reveal();});window.addEventListener('load',()=>{updateNav();reveal();});
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+function updateNav(){
+  let current = '';
+  sections.forEach(s => {if(pageYOffset >= s.offsetTop - 150) current = s.id;});
+  navLinks.forEach(l => l.classList.remove('active'));
+  if(current) document.querySelector("nav a[href='#"+current+"']")?.classList.add('active');
+}
+
+function reveal(){
+  sections.forEach(s => {if(s.getBoundingClientRect().top < window.innerHeight - 100) s.classList.add('visible');});
+}
+
+window.addEventListener('scroll', () => {updateNav(); reveal();});
+window.addEventListener('load', () => {updateNav(); reveal();});
+
 // Carte
-var map=L.map('map-markets').setView([46.39,0.05],11);
+var map = L.map('map-markets').setView([46.39,0.05],11);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
-[{coords:[46.4199,0.0404],name:"Marché de Rouillé"},{coords:[46.3592,0.0558],name:"Marché de Saint-Sauvant"}].forEach(m=>L.circleMarker(m.coords,{color:'#2E5F3B',radius:8,fillOpacity:.8}).addTo(map).bindPopup(m.name));
-[{coords:[46.2782,-0.0471],name:"Florenda - ferme florale - Maraîchage"},
-{coords:[46.4606,0.2295],name:"La Ferme du Chant du Bois - Fromages de chèvres"},
-{coords:[46.4513, 0.3329],name:"EARL des Pervenches - Fromages de chèvres"},
-{coords:[46.3484,0.34],name:"Au Gaby'O maraicher - Maraîchage"},
-{coords:[46.3565, -0.0988],name:"Champ de la Source - Maraîchage"},
-{coords:[46.4840, 0.2355],name:"La Graine de Ferme - Maraîchage"},
-{coords:[46.3013, 0.0496],name:"Les Jardins du Tilleul - Maraîchage"},
-{coords:[46.0440, -0.0489],name:"GAEC Le pain des Fontaines - Paysans Boulangers"},
-{coords:[46.2582, -0.1198],name:"Les Pâtes d'ici de là - Paysan Pastier"},
-{coords:[46.2935, 0.3515],name:"La Ferme des Branjardières - oeufs"},
-{coords:[46.4277, 0.2903],name:"GAEC La ferme des Clouères - Maraîchage, viande de porc"},
-{coords:[46.5169, 0.4270],name:"La Folie Bergère - Maraîchage, élevage moutons, fromage, viandes, laine, petits-fruits, fruits"},
-{coords:[46.3813, 0.5813],name:"GAEC La Ferme de la Quinatière - Maraîchage"},
-].forEach(f=>L.circleMarker(f.coords,{color:'#FF5733',radius:8,fillOpacity:.8}).addTo(map).bindPopup(f.name));
-map.fitBounds([[46.4199,0.0404],[46.3592,0.0558],[46.2782,-0.0471],[46.4606,0.2295],[46.4456,0.2458],[46.3484,0.34],[46.3012,0.0496]]);
+
+const markets = [
+  {coords:[46.4199,0.0404],name:"Marché de Rouillé"},
+  {coords:[46.3592,0.0558],name:"Marché de Saint-Sauvant"}
+];
+markets.forEach(m => L.circleMarker(m.coords,{color:'#2E5F3B',radius:8,fillOpacity:.8}).addTo(map).bindPopup(m.name));
+
+const producers = [
+  {coords:[46.2782,-0.0471],name:"Florenda - ferme florale - Maraîchage"},
+  {coords:[46.4606,0.2295],name:"La Ferme du Chant du Bois - Fromages de chèvres"},
+  {coords:[46.4513,0.3329],name:"EARL des Pervenches - Fromages de chèvres"},
+  {coords:[46.3484,0.34],name:"Au Gaby'O maraicher - Maraîchage"},
+  {coords:[46.3565,-0.0988],name:"Champ de la Source - Maraîchage"},
+  {coords:[46.4840,0.2355],name:"La Graine de Ferme - Maraîchage"},
+  {coords:[46.3013,0.0496],name:"Les Jardins du Tilleul - Maraîchage"},
+  {coords:[46.0440,-0.0489],name:"GAEC Le pain des Fontaines - Paysans Boulangers"},
+  {coords:[46.2582,-0.1198],name:"Les Pâtes d'ici de là - Paysan Pastier"},
+  {coords:[46.2935,0.3515],name:"La Ferme des Branjardières - oeufs"},
+  {coords:[46.4277,0.2903],name:"GAEC La ferme des Clouères - Maraîchage, viande de porc"},
+  {coords:[46.5169,0.4270],name:"La Folie Bergère - Maraîchage, élevage moutons, fromage, viandes, laine, petits-fruits, fruits"},
+  {coords:[46.3813,0.5813],name:"GAEC La Ferme de la Quinatière - Maraîchage"}
+];
+producers.forEach(f => L.circleMarker(f.coords,{color:'#FF5733',radius:8,fillOpacity:.8}).addTo(map).bindPopup(f.name));
+
+map.fitBounds([
+  [46.4199,0.0404],[46.3592,0.0558],[46.2782,-0.0471],[46.4606,0.2295],
+  [46.4513,0.3329],[46.3484,0.34],[46.3565,-0.0988],[46.4840,0.2355],
+  [46.3013,0.0496],[46.0440,-0.0489],[46.2582,-0.1198],[46.2935,0.3515],
+  [46.4277,0.2903],[46.5169,0.4270],[46.3813,0.5813]
+]);
+
 // Formulaire
-document.getElementById('contact-form').addEventListener('submit',e=>{e.preventDefault();
-const name=document.getElementById('name').value.trim(),phone=document.getElementById('phone').value.trim(),email=document.getElementById('email').value.trim(),message=document.getElementById('message').value.trim(),errorDiv=document.getElementById('form-error'),successDiv=document.getElementById('form-success');
-errorDiv.textContent='';successDiv.textContent='';
-if(!name||!phone||!email||!message){errorDiv.textContent='Merci de renseigner tous les champs.';return;}
-emailjs.send('service_ascwn4c','template_pidwx9q',{name,phone,email,message}).then(()=>{successDiv.textContent='Message envoyé avec succès !';document.getElementById('contact-form').reset();}).catch(()=>{errorDiv.textContent='Erreur lors de l\'envoi. Réessayez plus tard.';});});
+document.getElementById('contact-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const errorDiv = document.getElementById('form-error');
+  const successDiv = document.getElementById('form-success');
+  errorDiv.textContent = '';
+  successDiv.textContent = '';
+  if(!name || !phone || !email || !message){errorDiv.textContent='Merci de renseigner tous les champs.'; return;}
+  emailjs.send('service_ascwn4c','template_pidwx9q',{name,phone,email,message})
+    .then(()=>{successDiv.textContent='Message envoyé avec succès !';document.getElementById('contact-form').reset();})
+    .catch(()=>{errorDiv.textContent='Erreur lors de l\'envoi. Réessayez plus tard.';});
+});
+
 // Son
-const audio=document.getElementById("background-audio"),btnAudio=document.getElementById("audio-toggle");
-audio.volume=1.0;window.addEventListener("load",()=>{audio.play().catch(()=>{});});
-btnAudio.addEventListener("click",()=>{audio.paused?(audio.play(),btnAudio.classList.remove("muted"),btnAudio.textContent="🔊"):(audio.pause(),btnAudio.classList.add("muted"),btnAudio.textContent="🔇");});
+const audio = document.getElementById("background-audio");
+const btnAudio = document.getElementById("audio-toggle");
+audio.volume = 1.0;
+window.addEventListener("load",()=>{audio.play().catch(()=>{});});
+btnAudio.addEventListener("click",()=>{
+  if(audio.paused){audio.play(); btnAudio.classList.remove("muted"); btnAudio.textContent="🔊";}
+  else {audio.pause(); btnAudio.classList.add("muted"); btnAudio.textContent="🔇";}
+});
 </script>
 </body>
 </html>
